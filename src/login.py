@@ -27,7 +27,7 @@ class Login:
                 break
             except Exception:  # pylint: disable=broad-except
                 try:
-                    self.utils.waitUntilVisible(By.ID, "usernameTitle", 0.1)
+                    self.utils.waitUntilVisible(By.NAME, "loginfmt", 0.1)
                     break
                 except Exception:  # pylint: disable=broad-except
                     if self.utils.tryDismissAllMessages():
@@ -48,7 +48,7 @@ class Login:
         return points
 
     def executeLogin(self):
-        self.utils.waitUntilVisible(By.ID, "usernameTitle", 10)
+        self.utils.waitUntilVisible(By.NAME, "loginfmt", 10)
         logging.info("[LOGIN] " + "Writing email...")
         self.webdriver.find_element(By.NAME, "loginfmt").send_keys(
             self.browser.username
